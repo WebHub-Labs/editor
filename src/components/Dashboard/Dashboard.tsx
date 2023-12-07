@@ -6,13 +6,7 @@ import MainContent from "./MainContent";
 const Dashboard = () => {
   return (
     <>
-      <Flex
-        // position="relative"
-        // height="100%"
-        // top="0"
-        // bottom="0"
-        justifyContent="start"
-      >
+      <Flex marginTop={20} justifyContent="start">
         <Sidebar />
         <MainContent />
       </Flex>

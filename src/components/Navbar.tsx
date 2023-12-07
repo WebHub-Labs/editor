@@ -36,7 +36,14 @@ const Redo = () => {
 
 const Navbar = () => {
   return (
-    <Box width="100%" paddingX={20} paddingY={4} borderBottom="2px solid gray">
+    <Box
+      width="100%"
+      position="fixed"
+      top={0}
+      paddingX={20}
+      paddingY={4}
+      borderBottom="2px solid gray"
+    >
       <Flex justifyContent="start" gap={16}>
         <Flex gap={4}>
           <Logo />

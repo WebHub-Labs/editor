@@ -2,11 +2,14 @@ import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { AiFillLayout } from "react-icons/ai";
 import { AiFillHome } from "react-icons/ai";
+import AnnouncementSidebar from "./Sections/Header/Announcement";
+
 const Sidebar = () => {
   return (
     <>
       <Flex
-        position="sticky"
+        position="fixed"
+        left={0}
         maxWidth="lg"
         width="sm"
         height="calc( 100vh - 70px )"
@@ -43,9 +46,7 @@ const Sidebar = () => {
               <Text fontWeight="bold">Sections</Text>
             </Flex>
             <Flex paddingX={4} flexDirection="column" gap={2}>
-              <Flex padding={1} borderRadius={4}>
-                
-              </Flex>
+              <AnnouncementSidebar />
               <Flex>
                 <Text>Slider</Text>
               </Flex>

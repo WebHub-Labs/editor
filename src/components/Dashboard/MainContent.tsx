@@ -1,29 +1,33 @@
 import React from "react";
 import { Flex, Text, Box } from "@chakra-ui/react";
-import Navbar from "../Navbar";
-import Button from "../../editorComponents/Button";
+import Announcement from "./Sections/Header/Announcement/Announcement";
+import Navbar from "./Sections/Header/Navbar/Navbar";
+import Hero from "./Sections/Hero/Hero";
 
 const MainContent = () => {
   return (
     <Box
+      marginLeft="420px"
       marginTop={8}
-      width="100%"
+      // marginX={8}
+      boxShadow="10px 0px 10px 1px #aeaaaa"
+      width="70%"
+      height="80vh"
       display="flex"
       bg="#f9f9f9"
       justifyContent="center"
     >
       <Flex justifyContent="center" width="100%">
         <Flex
-          border="1px solid red"
-          width="70%"
+          width="100%"
           height="100%"
           flexDirection="column"
-          justifyContent="center"
+          justifyContent="start"
           borderRadius={4}
         >
           <Flex
             bg="white"
-            border="1px solid gray"
+            boxShadow="10px 0px 10px 1px #aeaaaa"
             alignItems="center"
             paddingY={2}
           >
@@ -35,8 +39,10 @@ const MainContent = () => {
             </Flex>
           </Flex>
 
-          <Flex flexDirection="column" padding={2}>
+          <Flex overflow="scroll" flexDirection="column" padding={2}>
+            <Announcement />
             <Navbar />
+            <Hero />
           </Flex>
         </Flex>
       </Flex>

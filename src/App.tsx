@@ -6,9 +6,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 function App() {
   return (
     <ChakraProvider>
-      <Flex flexDirection="column">
+      <Flex position="relative" flexDirection="column">
         <Navbar />
-
         <Dashboard />
       </Flex>
     </ChakraProvider>
