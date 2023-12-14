@@ -10,7 +10,7 @@ type MenuItems = {
 };
 type Cart = {
   isModal: boolean;
-  link: string | null;
+  // link: string | null;
 };
 type ContentState = {
   header: {
@@ -33,21 +33,3 @@ type ContentState = {
     };
   };
 };
-
-type AnnouncementBar = {
-  isPresent: boolean;
-  text: string;
-};
-type Action = {
-  updateHeaderIsPresent: (isPresent: boolean) => void;
-  updateHeaderText: (text: string) => void;
-};
-
-export const useAnnouncementStore = create<AnnouncementBar & Action>((set) => ({
-  isPresent: true,
-  text: "Announcement",
-
-  updateHeaderIsPresent: (isPresent: boolean) =>
-    set(() => ({ isPresent: isPresent })),
-  updateHeaderText: (text: string) => set(() => ({ text: text })),
-}));

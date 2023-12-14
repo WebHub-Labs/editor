@@ -1,22 +1,27 @@
-import { Flex, Link, Text } from "@chakra-ui/react";
 import React from "react";
+import { Flex, Link, Text } from "@chakra-ui/react";
 import Button from "../../../../../editorComponents/Button";
+import { AnnouncementBarContent } from "../../../../../core/statemanagement/useAnnouncementStore";
 
-const Announcement = () => {
-  return (
-    <Flex
-      paddingY={2}
-      borderBottom="1px solid gray"
-      justifyContent="center"
-      alignItems="center"
-      gap={2}
-    >
-      <Text>Sales is currently running</Text>
-      <Link href="/shop">
-        <Button text=" Shop Now"></Button>
-      </Link>
-    </Flex>
-  );
+const Announcement = ({ isPresent, text, link }: AnnouncementBarContent) => {
+  if (isPresent) {
+    return (
+      <Flex
+        paddingY={2}
+        borderBottom="1px solid gray"
+        justifyContent="center"
+        alignItems="center"
+        gap={2}
+      >
+        <Text>{text}</Text>
+        <Link href={`/${link.to}`}>
+          <Button text={`${link.text}`}></Button>
+        </Link>
+      </Flex>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Announcement;

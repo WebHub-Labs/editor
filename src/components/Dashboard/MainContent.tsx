@@ -1,8 +1,6 @@
 import React from "react";
 import { Flex, Text, Box } from "@chakra-ui/react";
-import Announcement from "./Sections/Header/Announcement/Announcement";
-import Navbar from "./Sections/Header/Navbar/Navbar";
-import Hero from "./Sections/Hero/Hero";
+import EditorMainContent from "./EditorMainContent";
 
 const MainContent = () => {
   return (
@@ -39,11 +37,7 @@ const MainContent = () => {
             </Flex>
           </Flex>
 
-          <Flex overflow="scroll" flexDirection="column" padding={2}>
-            <Announcement />
-            <Navbar />
-            <Hero />
-          </Flex>
+          <EditorMainContent page="/" />
         </Flex>
       </Flex>
     </Box>

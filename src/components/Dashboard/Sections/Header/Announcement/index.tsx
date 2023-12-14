@@ -1,6 +1,8 @@
-import React from "react";
-import { useAnnouncementStore } from "../../../../../core/statemanagement";
+import React, { useContext } from "react";
 import { Tree } from "react-arborist";
+// import { useAnnouncementStore } from "../../../../../core/statemanagement/useAnnouncementStore";
+import { Input, Text } from "@chakra-ui/react";
+import { EditorContext } from "../../../../../App";
 
 function Node({ node, style, dragHandle }: any) {
   /* This node instance can do many things. See the API reference. */
@@ -12,34 +14,14 @@ function Node({ node, style, dragHandle }: any) {
 }
 
 const AnnouncementSidebar = () => {
-  const { isPresent, text } = useAnnouncementStore();
-  const data = [
-    {
-      id: "1",
-      name: "Announcement",
-      children: [
-        { id: "c1", name: "Text" },
-        { id: "c2", name: "Link" },
-      ],
-    },
-  ];
-
+  const mainEditorState = useContext(EditorContext)
+  const announcement = mainEditorState?.mainContent[0].header?.announcement
   return (
     <>
-      <Tree
-        initialData={data}
-        openByDefault={false}
-        // width={600}
-        // height="sm"
-        // indent={24}
-        // rowHeight={36}
-        // overscanCount={1}
-        // paddingTop={30}
-        // paddingBottom={10}
-        // padding={25 /* sets both */}
-      >
-        {Node}
-      </Tree>
+      <Text>Announcement</Text>
+      <Input value={announcement?.announcementstate?.} onChange={(value) => {
+        announcement?.text = value
+      }}></Input>
     </>
   );
 };

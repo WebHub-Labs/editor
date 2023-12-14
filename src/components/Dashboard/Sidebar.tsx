@@ -10,8 +10,8 @@ const Sidebar = () => {
       <Flex
         position="fixed"
         left={0}
+        minWidth="300px"
         maxWidth="lg"
-        width="sm"
         height="calc( 100vh - 70px )"
         boxShadow="10px 0px 10px 1px #aeaaaa"
       >
@@ -35,17 +35,29 @@ const Sidebar = () => {
           <Flex></Flex>
         </Flex>
 
-        <Flex flexDirection="column" padding={1} gap={4}>
-          <Flex flexDirection="column" gap={2}>
-            {/* <Flex padding={2}>
-              <Text fontWeight="bold">Pages</Text>
-            </Flex> */}
-          </Flex>
-          <Flex flexDirection="column" gap={2}>
+        <Flex
+          position="relative"
+          flexDirection="column"
+          padding={1}
+          gap={4}
+          width="100%"
+        >
+          <Flex
+            position="absolute"
+            left="0"
+            top="0"
+            flexDirection="column"
+            gap={2}
+          >
             <Flex padding={2}>
               <Text fontWeight="bold">Sections</Text>
             </Flex>
-            <Flex paddingX={4} flexDirection="column" gap={2}>
+            <Flex
+              paddingX={4}
+              justifyContent="center"
+              flexDirection="column"
+              gap={2}
+            >
               <AnnouncementSidebar />
               <Flex>
                 <Text>Slider</Text>
