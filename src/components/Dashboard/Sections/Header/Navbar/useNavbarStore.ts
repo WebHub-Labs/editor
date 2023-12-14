@@ -5,7 +5,7 @@ type Navbar = {
     text: string;
 };
 type Action = {
-    updateNavbarTransparen: (isTransparent: boolean) => void;
+    updateNavbarTransparent: (isTransparent: boolean) => void;
     updateHeaderIsPresent: (isPresent: boolean) => void;
     updateHeaderText: (text: string) => void;
 };
@@ -15,7 +15,7 @@ export const useNavbarStore = create<Navbar & Action>((set) => ({
     text: "Announcement",
     isTransparent: false,
 
-    updateNavbarTransparen: (isTransparent: boolean) =>
+    updateNavbarTransparent: (isTransparent: boolean) =>
         set(() => ({ isTransparent: isTransparent })),
     updateHeaderIsPresent: (isPresent: boolean) =>
         set(() => ({ isPresent: isPresent })),

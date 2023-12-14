@@ -1,9 +1,9 @@
 import React from "react";
 import { Flex, Link, Text } from "@chakra-ui/react";
 import Button from "../../../../../editorComponents/Button";
-import { AnnouncementBarContent } from "../../../../../core/statemanagement/useAnnouncementStore";
+import { AnnouncementBarProps } from "../../../../../core/statemanagement/useAnnouncementStore";
 
-const Announcement = ({ isPresent, text, link }: AnnouncementBarContent) => {
+const Announcement = ({ isPresent, text, link }: AnnouncementBarProps) => {
   if (isPresent) {
     return (
       <Flex

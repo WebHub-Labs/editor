@@ -1,5 +1,4 @@
 import { AddAnnouncementBar } from "../../../components/Dashboard/Sections/Header/Announcement/AddAnnouncement";
-import { AnnouncementBarContent } from "../useAnnouncementStore";
 
 type MainEditorStateType = {};
 
@@ -45,16 +44,16 @@ export default class MainEditorState {
   ];
   constructor() {
     const announcementBar = new AddAnnouncementBar({
-      isPresent: false,
-      text: "Sales",
+      isPresent: true,
+      text: "Sales to",
       link: { text: "Shop", to: "/shop" },
     });
+
     this.addAnnouncement(announcementBar);
-    console.log(announcementBar?.announcementstate);
   }
 
   addAnnouncement(announcementBar: AddAnnouncementBar) {
-    this.mainContent[0]!.header!.announcement = announcementBar
+    this.mainContent[0]!.header!.announcement = announcementBar;
   }
 }
 

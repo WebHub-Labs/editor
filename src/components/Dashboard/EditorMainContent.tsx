@@ -4,12 +4,11 @@ import Announcement from "./Sections/Header/Announcement/Announcement";
 import Navbar from "./Sections/Header/Navbar/Navbar";
 import Hero from "./Sections/Hero/Hero";
 import FeaturedProduct from "./Sections/FeaturedProduct/FeaturedProduct";
-import { AnnouncementBarContent } from "../../core/statemanagement/useAnnouncementStore";
 import { EditorContext } from "../../App";
 
 export const EditorMainContent = ({ page }: any) => {
   const content = useContext(EditorContext);
-  console.log(content);
+  // console.log(content);
   return (
     <Flex overflow="scroll" flexDirection="column" padding={2}>
       {content!.mainContent?.map((content: any) => {
@@ -18,7 +17,7 @@ export const EditorMainContent = ({ page }: any) => {
             isPresent: announcementIsPresent,
             text: announcementText,
             link: announcementLink,
-          } = content?.header?.announcement as AnnouncementBarContent;
+          } = content.header?.announcement?.announcementstate?.getState();
           return (
             <>
               <Announcement

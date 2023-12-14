@@ -1,5 +1,5 @@
 import { createStore } from "zustand";
-export type AnnouncementBarContent = {
+export type AnnouncementBarProps = {
     isPresent: boolean;
     text: string;
     link: {
@@ -7,15 +7,17 @@ export type AnnouncementBarContent = {
         to: string;
     }
 };
-type Action = {
+
+interface AnnouncementBarContent extends AnnouncementBarProps {
     updateHeaderIsPresent: (isPresent: boolean) => void;
     updateHeaderText: (text: string) => void;
-};
+}
+
 
 export type AnnouncementStore = ReturnType<typeof createAnnouncementStore>
 
-export const createAnnouncementStore = (initProps?: Partial<AnnouncementBarContent>) => {
-    const DEFAULT_PROPS: AnnouncementBarContent = {
+export const createAnnouncementStore = (initProps?: Partial<AnnouncementBarProps>) => {
+    const DEFAULT_PROPS: AnnouncementBarProps = {
         isPresent: false,
         text: "Sales",
         link: {
