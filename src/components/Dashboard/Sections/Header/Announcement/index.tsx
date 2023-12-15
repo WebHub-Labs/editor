@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Tree } from "react-arborist";
 // import { useAnnouncementStore } from "../../../../../core/statemanagement/useAnnouncementStore";
 import { Input, Text } from "@chakra-ui/react";
@@ -18,17 +18,13 @@ function Node({ node, style, dragHandle }: any) {
 const AnnouncementSidebar = () => {
   const mainEditorState = useContext(EditorContext);
   const announcement = mainEditorState?.mainContent[0].header?.announcement;
-
-  console.log(mainEditorState);
-
-  const text = announcement?.announcementstate.getState().text;
-  const isPresent = announcement?.announcementstate?.getState().isPresent;
-  const setText = announcement?.announcementstate?.getState().updateHeaderText;
-
+  const an = useStore(announcement!.announcement);
+  const text = an!.text;
+  const isPresent = an!.isPresent;
+  const setText = an?.updateHeaderText;
   return (
     <>
       <Text>Announcement</Text>
-      <Text mb="8px">Value: {text}</Text>
       <Input
         value={text}
         onChange={(event) => {

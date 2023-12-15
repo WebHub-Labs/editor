@@ -3,6 +3,7 @@ import { Flex, Text } from "@chakra-ui/react";
 import { AiFillLayout } from "react-icons/ai";
 import { AiFillHome } from "react-icons/ai";
 import AnnouncementSidebar from "./Sections/Header/Announcement";
+import NavbarSidebar from "./Sections/Header/Navbar";
 
 const Sidebar = () => {
   return (
@@ -59,6 +60,7 @@ const Sidebar = () => {
               gap={2}
             >
               <AnnouncementSidebar />
+              <NavbarSidebar />
               <Flex>
                 <Text>Slider</Text>
               </Flex>

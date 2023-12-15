@@ -17,6 +17,6 @@ export type NavbarState = {
         type: string;
       };
     };
-    menuItems: string[];
+    // menuItems: string[];
   };
 };

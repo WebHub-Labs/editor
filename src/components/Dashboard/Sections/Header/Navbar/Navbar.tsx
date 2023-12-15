@@ -23,7 +23,7 @@ const Navbar = () => {
           <Logo />
         </Flex>
         <Flex>
-          <Flex paddingX={4}></Flex>
+          <Flex paddingX={4}>Text</Flex>
         </Flex>
       </Flex>
     </Box>

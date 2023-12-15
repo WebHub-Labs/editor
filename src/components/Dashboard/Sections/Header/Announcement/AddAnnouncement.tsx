@@ -1,9 +1,13 @@
-import { createAnnouncementStore } from "../../../../../core/statemanagement/useAnnouncementStore";
-import { AnnouncementBarProps } from "../../../../../core/statemanagement/useAnnouncementStore";
+import {
+  AnnouncementBarProps,
+  createAnnouncementStore,
+} from "../../../../../core/statemanagement/useAnnouncementStore";
 
 export class AddAnnouncementBar {
-  announcementstate = null as any;
+  announcement = createAnnouncementStore();
+  announcementstate = this.announcement.getState();
   constructor(props?: AnnouncementBarProps) {
-    this.announcementstate = createAnnouncementStore({ ...props });
+    this.announcement = createAnnouncementStore({ ...props });
+    this.announcementstate = this.announcement.getState();
   }
 }

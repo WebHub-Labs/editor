@@ -5,25 +5,21 @@ import Navbar from "./Sections/Header/Navbar/Navbar";
 import Hero from "./Sections/Hero/Hero";
 import FeaturedProduct from "./Sections/FeaturedProduct/FeaturedProduct";
 import { EditorContext } from "../../App";
+import { useStore } from "zustand";
+import { AddAnnouncementBar } from "./Sections/Header/Announcement/AddAnnouncement";
 
 export const EditorMainContent = ({ page }: any) => {
   const content = useContext(EditorContext);
-  // console.log(content);
   return (
     <Flex overflow="scroll" flexDirection="column" padding={2}>
       {content!.mainContent?.map((content: any) => {
         if (content.type === "header") {
-          const {
-            isPresent: announcementIsPresent,
-            text: announcementText,
-            link: announcementLink,
-          } = content.header?.announcement?.announcementstate?.getState();
           return (
             <>
               <Announcement
-                isPresent={announcementIsPresent}
-                text={announcementText}
-                link={announcementLink}
+                announcement={
+                  content.header?.announcement as AddAnnouncementBar
+                }
               />
               <Navbar />
             </>

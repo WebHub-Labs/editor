@@ -2,9 +2,17 @@ import React from "react";
 import { Flex, Link, Text } from "@chakra-ui/react";
 import Button from "../../../../../editorComponents/Button";
 import { AnnouncementBarProps } from "../../../../../core/statemanagement/useAnnouncementStore";
+import { useStore } from "zustand";
+import { AddAnnouncementBar } from "./AddAnnouncement";
 
-const Announcement = ({ isPresent, text, link }: AnnouncementBarProps) => {
-  if (isPresent) {
+const Announcement = ({
+  announcement,
+}: {
+  announcement: AddAnnouncementBar;
+}) => {
+  const an = useStore(announcement.announcement);
+
+  if (an!.isPresent) {
     return (
       <Flex
         paddingY={2}
@@ -13,9 +21,9 @@ const Announcement = ({ isPresent, text, link }: AnnouncementBarProps) => {
         alignItems="center"
         gap={2}
       >
-        <Text>{text}</Text>
-        <Link href={`/${link.to}`}>
-          <Button text={`${link.text}`}></Button>
+        <Text>{an.text}</Text>
+        <Link href={`/${an.link.to}`}>
+          <Button text={`${an.link.text}`}></Button>
         </Link>
       </Flex>
     );
