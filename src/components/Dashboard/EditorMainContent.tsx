@@ -11,19 +11,19 @@ export const EditorMainContent = ({ page }: any) => {
   const content = useContext(EditorContext);
   return (
     <Flex overflow="scroll" flexDirection="column" padding={2}>
-      {content!.mainContent?.map((content: any) => {
+      {content!.mainContent?.map((content) => {
         if (content.type === "announcement") {
           return (
             <>
               <Announcement
-                announcement={content.announcement as AddAnnouncementBar}
+                announcement={content.element as AddAnnouncementBar}
               />
             </>
           );
         } else if (content.type === "header") {
           return <Navbar />;
         } else if (content.type === "image_banner_with_text") {
-          return <Hero />;
+          // return <Hero imageWithOverlay={content.} />;
         } else {
           return null;
         }

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Input, Text } from "@chakra-ui/react";
 import { EditorContext } from "../../../../../App";
 import { useStore } from "zustand";
+import { AddAnnouncementBar } from "./AddAnnouncement";
 
 function Node({ node, style, dragHandle }: any) {
   /* This node instance can do many things. See the API reference. */
@@ -14,11 +15,12 @@ function Node({ node, style, dragHandle }: any) {
 
 const AnnouncementSidebar = () => {
   const mainEditorState = useContext(EditorContext);
-  const announcement = mainEditorState?.mainContent[0].header?.announcement;
-  const an = useStore(announcement!.announcement);
-  const text = an!.text;
-  const isPresent = an!.isPresent;
-  const setText = an?.updateHeaderText;
+  const announcement = mainEditorState?.mainContent[0]
+    .element as AddAnnouncementBar;
+  const an = useStore(announcement.announcement);
+  const text = an.text;
+  const isPresent = an.isPresent;
+  const setText = an.updateHeaderText;
   return (
     <>
       <Text>Announcement</Text>

@@ -8,8 +8,8 @@ export class AddAnnouncementBar extends Node {
   announcement = createAnnouncementStore();
   announcementstate = this.announcement.getState();
   constructor(
-    before: Node | null,
-    after: Node | null,
+    before: string | null,
+    after: string | null,
     props?: AnnouncementBarProps
   ) {
     super(before, after);

@@ -1,10 +1,10 @@
-import { randomUUID } from "crypto";
+// import { randomUUID } from "crypto";
 
 export default class Node {
-  before: Node | null;
-  after: Node | null;
-  id: String;
-  constructor(before: Node | null, after: Node | null) {
+  before: string | null;
+  after: string | null;
+  id: string;
+  constructor(before: string | null, after: string | null) {
     if (before != null) {
       this.before = before;
     }
@@ -13,16 +13,19 @@ export default class Node {
     }
     this.before = null;
     this.after = null;
-    this.id = randomUUID();
+    this.id = Math.random().toString();
   }
 
   addBefore(node: Node) {
-    node.before = this.before;
-    node.after = this;
+    this.before = node.id;
+    this.after = node.before;
+    node.after = this.id;
+
+    // node.after = this.id;
   }
 
   addAfter(node: Node) {
-    node.after = this;
-    node.after = this.after;
+    this.after = node.id;
+    // node.after = this.after;
   }
 }

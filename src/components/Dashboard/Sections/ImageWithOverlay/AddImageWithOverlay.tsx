@@ -8,8 +8,8 @@ export class AddImageWithOverlay extends Node {
   imageWithOverlay = createImageWithOverlayStore();
   imageWithOverlayState = this.imageWithOverlay.getState();
   constructor(
-    before: Node | null,
-    after: Node | null,
+    before: string | null,
+    after: string | null,
     props?: ImageWithOverlayProps
   ) {
     super(before, after);
