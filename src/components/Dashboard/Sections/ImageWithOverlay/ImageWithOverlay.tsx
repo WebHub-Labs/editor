@@ -1,16 +1,20 @@
 import React from "react";
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
-import Button from "./../../../../editorComponents/Button";
+import Button from "../../../../editorComponents/Button";
+import { ImageWithOverlayState } from "./ImageWithOverlayState";
 
-const Hero = () => {
+const ImageWithOverlay = ({
+  imageWithOverlay,
+}: {
+  imageWithOverlay: ImageWithOverlayState;
+}) => {
   return (
     <Box
       position="relative"
-      backgroundImage='url("https://i.pinimg.com/originals/28/46/ac/2846ac79d1d82ef3bf861fb0187bf16a.png")'
+      backgroundImage={`url("${imageWithOverlay.imageLink}")`}
     >
       <Image
-        // position="absolute"
-        src="https://i.pinimg.com/originals/28/46/ac/2846ac79d1d82ef3bf861fb0187bf16a.png"
+        src={`${imageWithOverlay.imageLink}`}
         height="600px"
         width="100%"
       />
@@ -31,7 +35,7 @@ const Hero = () => {
           className="hero_primaryText"
           color="white"
         >
-          Art & Rhyme
+          {imageWithOverlay.text}
         </Text>
         <Text
           fontFamily="bold"
@@ -41,12 +45,12 @@ const Hero = () => {
         >
           Hero Section
         </Text>
-        <Link href="/shop">
-          <Button text="Shop Now" />
+        <Link href={`${imageWithOverlay.button.link}`}>
+          <Button text={`${imageWithOverlay.button.text}`} />
         </Link>
       </Flex>
     </Box>
   );
 };
 
-export default Hero;
+export default ImageWithOverlay;

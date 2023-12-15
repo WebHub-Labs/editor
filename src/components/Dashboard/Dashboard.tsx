@@ -6,7 +6,7 @@ import MainContent from "./MainContent";
 const Dashboard = () => {
   return (
     <>
-      <Flex marginTop={20} justifyContent="start">
+      <Flex marginTop="74px" justifyContent="start">
         <Sidebar />
         <MainContent />
       </Flex>

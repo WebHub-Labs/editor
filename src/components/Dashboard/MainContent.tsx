@@ -36,7 +36,6 @@ const MainContent = () => {
               </Flex>
             </Flex>
           </Flex>
-
           <EditorMainContent page="/" />
         </Flex>
       </Flex>

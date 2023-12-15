@@ -14,9 +14,9 @@ const Sidebar = () => {
         minWidth="300px"
         maxWidth="lg"
         height="calc( 100vh - 70px )"
-        boxShadow="10px 0px 10px 1px #aeaaaa"
+        boxShadow="1px 0px 1px 1px #aeaaaa"
       >
-        <Flex
+        {/* <Flex
           borderRight="2px solid gray"
           boxShadow="10px 0px 10px 1px #bffaaaa"
           height="100%"
@@ -34,12 +34,12 @@ const Sidebar = () => {
             <AiFillHome />
           </Flex>
           <Flex></Flex>
-        </Flex>
+        </Flex> */}
 
         <Flex
           position="relative"
           flexDirection="column"
-          padding={1}
+          // padding={}
           gap={4}
           width="100%"
         >

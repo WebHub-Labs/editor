@@ -42,7 +42,7 @@ const Navbar = () => {
       top={0}
       paddingX={20}
       paddingY={4}
-      borderBottom="2px solid gray"
+      borderBottom="1px solid gray"
     >
       <Flex justifyContent="start" gap={16}>
         <Flex gap={4}>

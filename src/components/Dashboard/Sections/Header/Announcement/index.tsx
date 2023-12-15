@@ -1,9 +1,6 @@
-import React, { useContext, useState } from "react";
-import { Tree } from "react-arborist";
-// import { useAnnouncementStore } from "../../../../../core/statemanagement/useAnnouncementStore";
+import React, { useContext } from "react";
 import { Input, Text } from "@chakra-ui/react";
 import { EditorContext } from "../../../../../App";
-import Announcement from "./Announcement";
 import { useStore } from "zustand";
 
 function Node({ node, style, dragHandle }: any) {
