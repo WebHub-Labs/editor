@@ -1,18 +1,10 @@
-import Node from "../..";
-import {
-  AnnouncementBarProps,
-  createAnnouncementStore,
-} from "../../../../../core/statemanagement/useAnnouncementStore";
+import { createAnnouncementStore } from "../../../../../core/statemanagement/useAnnouncementStore";
+import { AnnouncementState } from "./AnnouncementState";
 
-export class AddAnnouncementBar extends Node {
+export class AddAnnouncementBar {
   announcement = createAnnouncementStore();
   announcementstate = this.announcement.getState();
-  constructor(
-    before: string | null,
-    after: string | null,
-    props?: AnnouncementBarProps
-  ) {
-    super(before, after);
+  constructor(props?: AnnouncementState) {
     this.announcement = createAnnouncementStore({ ...props });
     this.announcementstate = this.announcement.getState();
   }

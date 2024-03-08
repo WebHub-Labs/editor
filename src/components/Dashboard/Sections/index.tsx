@@ -1,31 +1,22 @@
-// import { randomUUID } from "crypto";
+import { v4 as uuidv4 } from "uuid";
+import { AddAnnouncementBar } from "./Header/Announcement/AddAnnouncement";
+import AddNavbar from "./Header/Navbar/AddNavbar";
+import AddImageWithOverlay from "./ImageWithOverlay/AddImageWithOverlay";
+import AddFeaturedProduct from "./FeaturedProduct/AddFeaturedProduct";
+
+type Element =
+  | AddAnnouncementBar
+  | AddNavbar
+  | AddImageWithOverlay
+  | AddFeaturedProduct;
 
 export default class Node {
-  before: string | null;
-  after: string | null;
-  id: string;
-  constructor(before: string | null, after: string | null) {
-    if (before != null) {
-      this.before = before;
-    }
-    if (after != null) {
-      this.after = after;
-    }
-    this.before = null;
-    this.after = null;
-    this.id = Math.random().toString();
-  }
-
-  addBefore(node: Node) {
-    this.before = node.id;
-    this.after = node.before;
-    node.after = this.id;
-
-    // node.after = this.id;
-  }
-
-  addAfter(node: Node) {
-    this.after = node.id;
-    // node.after = this.after;
+  nodeId?: string;
+  type: string;
+  element: Element;
+  constructor({ type, element }: { type: string; element: Element }) {
+    this.nodeId = uuidv4();
+    this.type = type;
+    this.element = element;
   }
 }

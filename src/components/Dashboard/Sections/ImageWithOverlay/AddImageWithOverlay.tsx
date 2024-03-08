@@ -1,18 +1,12 @@
-import Node from "..";
 import {
-  ImageWithOverlayProps,
-  createImageWithOverlayStore,
+    createImageWithOverlayStore,
 } from "../../../../core/statemanagement/useImageWithOverlay";
+import { ImageWithOverlayState } from "./ImageWithOverlayState";
 
-export class AddImageWithOverlay extends Node {
+export class AddImageWithOverlay {
   imageWithOverlay = createImageWithOverlayStore();
   imageWithOverlayState = this.imageWithOverlay.getState();
-  constructor(
-    before: string | null,
-    after: string | null,
-    props?: ImageWithOverlayProps
-  ) {
-    super(before, after);
+  constructor(props?: ImageWithOverlayState) {
     this.imageWithOverlay = createImageWithOverlayStore({ ...props });
     this.imageWithOverlayState = this.imageWithOverlay.getState();
   }

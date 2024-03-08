@@ -1,23 +1,15 @@
 import { createStore } from "zustand";
+import { ImageWithOverlayState } from "../../components/Dashboard/Sections/ImageWithOverlay/ImageWithOverlayState";
 
-export type ImageWithOverlayProps = {
-  imageLink: string;
-  text: string;
-  button: {
-    text: string;
-    link: string;
-  };
-};
-
-interface ImageOverlayContent extends ImageWithOverlayProps {
+interface ImageOverlayContent extends ImageWithOverlayState {
   updateOverlayHeaderText: (text: string) => void;
   updateOverlayButtonText: (text: string) => void;
 }
 
 export const createImageWithOverlayStore = (
-  initProps?: Partial<ImageWithOverlayProps>
+  initProps?: Partial<ImageWithOverlayState>
 ) => {
-  const DEFAULT_PROPS: ImageWithOverlayProps = {
+  const DEFAULT_PROPS: ImageWithOverlayState = {
     imageLink:
       "https://madebyevan.com/figma/building-a-professional-design-tool-on-the-web/0.png",
     text: "Talk about your brand",

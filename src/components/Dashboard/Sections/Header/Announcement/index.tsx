@@ -1,25 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Input, Text } from "@chakra-ui/react";
-import { EditorContext } from "../../../../../App";
-import { useStore } from "zustand";
 import { AddAnnouncementBar } from "./AddAnnouncement";
+import { useStore } from "zustand";
 
-function Node({ node, style, dragHandle }: any) {
-  /* This node instance can do many things. See the API reference. */
-  return (
-    <div style={style} ref={dragHandle}>
-      {node.data.name}
-    </div>
-  );
-}
-
-const AnnouncementSidebar = () => {
-  const mainEditorState = useContext(EditorContext);
-  const announcement = mainEditorState?.mainContent[0]
-    .element as AddAnnouncementBar;
+const AnnouncementSidebar = ({
+  announcement,
+}: {
+  announcement: AddAnnouncementBar;
+}) => {
   const an = useStore(announcement.announcement);
   const text = an.text;
-  const isPresent = an.isPresent;
+  const isPresent = an.isPresent;  
   const setText = an.updateHeaderText;
   return (
     <>
@@ -28,7 +19,8 @@ const AnnouncementSidebar = () => {
         value={text}
         onChange={(event) => {
           const value = event.target.value;
-          setText(value);
+          an.updateHeaderText(value);
+          console.log(an);
         }}
       ></Input>
     </>

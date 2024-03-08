@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { AiFillLayout } from "react-icons/ai";
 import { AiFillHome } from "react-icons/ai";
 import AnnouncementSidebar from "./Sections/Header/Announcement";
 import NavbarSidebar from "./Sections/Header/Navbar";
+import { EditorContext } from "../../App";
+import { AddAnnouncementBar } from "./Sections/Header/Announcement/AddAnnouncement";
 
 const Sidebar = () => {
+  const mainEditorState = useContext(EditorContext);
   return (
     <>
       <Flex
@@ -16,26 +19,6 @@ const Sidebar = () => {
         height="calc( 100vh - 70px )"
         boxShadow="1px 0px 1px 1px #aeaaaa"
       >
-        {/* <Flex
-          borderRight="2px solid gray"
-          boxShadow="10px 0px 10px 1px #bffaaaa"
-          height="100%"
-          gap={2}
-          paddingY={2}
-          paddingX={4}
-          flexDirection="column"
-          justifyContent="start"
-        >
-          <Flex borderRadius={2} bg="orange" padding={2}>
-            <AiFillLayout />
-          </Flex>
-
-          <Flex borderRadius={2} bg="orange" padding={2}>
-            <AiFillHome />
-          </Flex>
-          <Flex></Flex>
-        </Flex> */}
-
         <Flex
           position="relative"
           flexDirection="column"
@@ -59,8 +42,22 @@ const Sidebar = () => {
               flexDirection="column"
               gap={2}
             >
-              <AnnouncementSidebar />
-              <NavbarSidebar />
+              {mainEditorState!.mainContent?.map((content) => {
+                if (content.type === "announcement") {
+                  return (
+                    <AnnouncementSidebar
+                      announcement={
+                        (content.element as AddAnnouncementBar)
+                      }
+                    />
+                  );
+                } else if (content.type === "header") {
+                  return <NavbarSidebar />;
+                } else if (content.type === "image_banner_with_text") {
+                } else if (content.type === "featured_product") {
+                }
+                return null;
+              })}
               <Flex>
                 <Text>Slider</Text>
               </Flex>

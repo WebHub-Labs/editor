@@ -1,14 +1,8 @@
 import { createStore } from "zustand";
-export type AnnouncementBarProps = {
-    isPresent: boolean;
-    text: string;
-    link: {
-        text: string;
-        to: string;
-    }
-};
+import { AnnouncementState } from "../../components/Dashboard/Sections/Header/Announcement/AnnouncementState";
 
-interface AnnouncementBarContent extends AnnouncementBarProps {
+
+interface AnnouncementBarContent extends AnnouncementState {
     updateHeaderIsPresent: (isPresent: boolean) => void;
     updateHeaderText: (text: string) => void;
 }
@@ -16,8 +10,8 @@ interface AnnouncementBarContent extends AnnouncementBarProps {
 
 export type AnnouncementStore = ReturnType<typeof createAnnouncementStore>
 
-export const createAnnouncementStore = (initProps?: Partial<AnnouncementBarProps>) => {
-    const DEFAULT_PROPS: AnnouncementBarProps = {
+export const createAnnouncementStore = (initProps?: Partial<AnnouncementState>) => {
+    const DEFAULT_PROPS: AnnouncementState = {
         isPresent: false,
         text: "Sales",
         link: {

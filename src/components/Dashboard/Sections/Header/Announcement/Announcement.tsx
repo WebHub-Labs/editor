@@ -1,9 +1,8 @@
 import React from "react";
 import { Flex, Link, Text } from "@chakra-ui/react";
 import Button from "../../../../../editorComponents/Button";
-import { AnnouncementBarProps } from "../../../../../core/statemanagement/useAnnouncementStore";
-import { useStore } from "zustand";
 import { AddAnnouncementBar } from "./AddAnnouncement";
+import { useStore } from "zustand";
 
 const Announcement = ({
   announcement,
@@ -11,7 +10,7 @@ const Announcement = ({
   announcement: AddAnnouncementBar;
 }) => {
   const an = useStore(announcement.announcement);
-
+  console.log(an.text);
   if (an!.isPresent) {
     return (
       <Flex

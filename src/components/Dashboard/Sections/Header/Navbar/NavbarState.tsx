@@ -1,4 +1,4 @@
-export type NavbarState = {
+export interface NavbarState {
   isPresent: boolean;
   isTransparent: boolean;
   text: string;
@@ -19,4 +19,4 @@ export type NavbarState = {
     };
     // menuItems: string[];
   };
-};
+}

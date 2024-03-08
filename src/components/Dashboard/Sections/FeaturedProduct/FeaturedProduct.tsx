@@ -1,22 +1,27 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
+import { Flex, Image, Text } from "@chakra-ui/react";
+import AddFeaturedProduct from "./AddFeaturedProduct";
+import { useStore } from "zustand";
 
-const FeaturedProduct = () => {
+const FeaturedProduct = ({
+  featuredProduct,
+}: {
+  featuredProduct: AddFeaturedProduct;
+}) => {
+  const fp = useStore(featuredProduct.featuredProduct);
   return (
     <Flex flexDirection="column" padding={8}>
       <Flex flexDirection="column" gap={2}>
         <Text className="featured-collections-header-text">
-          Featured Product
+          {fp.headerText}
         </Text>
         <Text className="featured-collections-header-secondaryText">
-          Our sleek and sophisticated induction cooker is designed to elevate
-          your cooking experience. Its slim and stylish profile seamlessly
-          blends into any modern kitchen.
+          {fp.subHeaderText}
         </Text>
       </Flex>
       <Flex justifyContent="center" gap={4}>
         <Flex className="product-image" width="50%">
-          <Image src="https://cdn.blanxer.com/uploads/63c7c5c7179af50e6707c23b/product_image-induction3-1036.png" />
+          <Image src={fp.content.image.url} />
         </Flex>
         <Flex
           flexDirection="column"
@@ -26,10 +31,10 @@ const FeaturedProduct = () => {
         >
           <Flex flexDirection="column">
             <Text fontSize={32} fontWeight={600}>
-              Omega 1.0 Ton Wall Mounted Air Conditioner With Free Installation
+              {fp.content.name}
             </Text>
             <Text fontSize={16} fontWeight={600}>
-              रू 5,000 रू 4,799 4% OFF
+              {fp.content.MRP} {fp.content.sellingPrice} {fp.content.priceOff}
             </Text>
           </Flex>
           <Flex></Flex>

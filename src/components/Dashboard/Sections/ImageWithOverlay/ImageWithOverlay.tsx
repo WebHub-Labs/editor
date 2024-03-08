@@ -1,23 +1,18 @@
 import React from "react";
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
 import Button from "../../../../editorComponents/Button";
-import { ImageWithOverlayState } from "./ImageWithOverlayState";
+import AddImageWithOverlay from "./AddImageWithOverlay";
+import { useStore } from "zustand";
 
 const ImageWithOverlay = ({
   imageWithOverlay,
 }: {
-  imageWithOverlay: ImageWithOverlayState;
+  imageWithOverlay: AddImageWithOverlay;
 }) => {
+  const imgOverlay = useStore(imageWithOverlay.imageWithOverlay);
   return (
-    <Box
-      position="relative"
-      backgroundImage={`url("${imageWithOverlay.imageLink}")`}
-    >
-      <Image
-        src={`${imageWithOverlay.imageLink}`}
-        height="600px"
-        width="100%"
-      />
+    <Box position="relative" backgroundImage={`url("${imgOverlay.imageLink}")`}>
+      <Image src={`${imgOverlay.imageLink}`} height="600px" width="100%" />
       <Flex
         position="absolute"
         top={0}
@@ -33,20 +28,20 @@ const ImageWithOverlay = ({
           fontFamily="bold"
           fontSize="xx-large"
           className="hero_primaryText"
-          color="white"
+          color="blue"
         >
-          {imageWithOverlay.text}
+          {imgOverlay.text}
         </Text>
         <Text
           fontFamily="bold"
           fontSize="x-large"
-          color="white"
+          color="blue"
           className="hero_secondaryText"
         >
-          Hero Section
+          Fancy Tshirts
         </Text>
-        <Link href={`${imageWithOverlay.button.link}`}>
-          <Button text={`${imageWithOverlay.button.text}`} />
+        <Link href={`${imgOverlay.button.link}`}>
+          <Button text={`${imgOverlay.button.text}`} />
         </Link>
       </Flex>
     </Box>
